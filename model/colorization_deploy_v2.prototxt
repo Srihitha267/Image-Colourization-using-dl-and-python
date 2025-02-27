@@ -1,4 +1,30 @@
+name: "LtoAB"
 
+layer {
+  name: "data_l"
+  type: "Input"
+  top: "data_l"
+  input_param {
+    shape { dim: 1 dim: 1 dim: 224 dim: 224 }
+  }
+}
+
+# *****************
+# ***** conv1 *****
+# *****************
+layer {
+  name: "bw_conv1_1"
+  type: "Convolution"
+  bottom: "data_l"
+  top: "conv1_1"
+  # param {lr_mult: 0 decay_mult: 0} 
+  # param {lr_mult: 0 decay_mult: 0} 
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+  }
+}
 layer {
   name: "relu1_1"
   type: "ReLU"
